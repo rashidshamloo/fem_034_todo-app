@@ -57,7 +57,7 @@ const AddTodo = ({ setTodoList }: addTodoProps) => {
           className="relative flex aspect-square w-[1.9rem] items-center justify-center rounded-full bg-lightGrayishBlue transition-[background-color] duration-500 peer-checked:bg-check peer-enabled:cursor-pointer peer-enabled:hover:bg-check dark:bg-veryDarkGrayishBlueD1 [&>img]:opacity-0 peer-checked:[&>img]:opacity-100 [&>span]:bg-white peer-checked:[&>span]:bg-transparent dark:[&>span]:bg-veryDarkGrayishBlueD2"
         >
           <span className="absolute inset-[1px] rounded-full transition-[background-color] duration-500 "></span>
-          <img src="/images/icon-check.svg" aria-hidden="true" alt="" />
+          <img src="images/icon-check.svg" aria-hidden="true" alt="" />
         </label>
         <input
           type="text"
