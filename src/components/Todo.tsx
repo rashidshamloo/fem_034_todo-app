@@ -120,7 +120,7 @@ const Todo = ({
             className="absolute inset-[1px] rounded-full transition-[background-color] duration-500"
             aria-hidden="true"
           ></span>
-          <img src="/images/icon-check.svg" aria-hidden="true" alt="" />
+          <img src="images/icon-check.svg" aria-hidden="true" alt="" />
         </label>
         <p className="flex h-full items-center justify-start py-4 text-[16px] transition-[color] duration-500 peer-checked:text-lightGrayishBlue peer-checked:line-through dark:peer-checked:text-darkGrayishBlueD sm:text-[18px]">
           {data.title}
@@ -134,7 +134,7 @@ const Todo = ({
           onClick={handleClick}
         >
           <img
-            src="/images/icon-cross.svg"
+            src="images/icon-cross.svg"
             alt=""
             aria-hidden="true"
             className="aspect-square w-[1.25rem]"
