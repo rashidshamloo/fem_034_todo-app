@@ -1,0 +1,9 @@
+[
+  { "id": "1111", "title": "🧽 Wash the dishes", "completed": false },
+  { "id": "2222", "title": "💻 Learn React.js", "completed": true },
+  { "id": "3333", "title": "👕 Do the laundry", "completed": false },
+  { "id": "4444", "title": "🛁 Take a bath", "completed": false },
+  { "id": "5555", "title": "🧺 Buy groceries", "completed": true },
+  { "id": "7777", "title": "🍚 Prepare lunch", "completed": false },
+  { "id": "8888", "title": "☂️ Check the weather", "completed": true }
+]
