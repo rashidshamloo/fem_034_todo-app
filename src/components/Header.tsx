@@ -1,17 +1,26 @@
+// react
+import { useEffect, useState } from 'react';
+
 // theme-toggles
 import '@theme-toggles/react/css/Classic.css';
 import { Classic } from '@theme-toggles/react';
 
-// types
-interface headerProps {
-  darkMode: boolean;
-  setDarkMode: (darkMode: boolean) => void;
-}
-
-const Header = ({ darkMode, setDarkMode }: headerProps) => {
+const Header = () => {
+  const darkModeDefault = localStorage.getItem('darkMode') === 'true';
+  if (darkModeDefault) document.body.classList.add('dark');
+  const [darkMode, setDarkMode] = useState(darkModeDefault);
   const onToggle = () => {
     setDarkMode(!darkMode);
   };
+
+  // update localStorage for darkMode
+  useEffect(() => {
+    darkMode
+      ? document.body.classList.add('dark')
+      : document.body.classList.remove('dark');
+    localStorage.setItem('darkMode', String(darkMode));
+  }, [darkMode]);
+
   return (
     <header className="flex justify-between pt-14 text-[2.25rem] font-bold tracking-[0.65rem] text-white sm:pt-[4.25rem] sm:text-[2.5rem] sm:tracking-[1rem]">
       <div

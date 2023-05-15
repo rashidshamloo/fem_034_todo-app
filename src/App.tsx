@@ -19,9 +19,6 @@ const App = () => {
     : defaultTodo;
 
   // states
-  const darkModeDefault = localStorage.getItem('darkMode') === 'true';
-  if (darkModeDefault) document.body.classList.add('dark');
-  const [darkMode, setDarkMode] = useState(darkModeDefault);
   const [todoList, setTodoList] =
     useState<Array<{ id: string; title: string; completed: boolean }>>(
       todoListDefault
@@ -44,14 +41,6 @@ const App = () => {
     localStorage.setItem('todoList', JSON.stringify(todoList));
   }, [todoList]);
 
-  // update localStorage for darkMode
-  useEffect(() => {
-    darkMode
-      ? document.body.classList.add('dark')
-      : document.body.classList.remove('dark');
-    localStorage.setItem('darkMode', String(darkMode));
-  }, [darkMode]);
-
   useEffect(() => {
     // enable transitions after page load
     document.body.classList.remove('[&>div]:!transition-none');
@@ -62,7 +51,7 @@ const App = () => {
 
   return (
     <div className="mx-auto w-full sm:max-w-[33.75rem]">
-      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Header />
       <main className="mx-[6%] mt-6 sm:mx-0 sm:mt-8">
         <AddTodo setTodoList={setTodoList} />
         <TodoList
