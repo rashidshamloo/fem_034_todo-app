@@ -11,21 +11,16 @@ import Todo from './Todo';
 import Filter from './Filter';
 
 // types
-import { filter } from '../App';
+import { filter, todo } from '../App';
 
 interface todoListProps {
   todoList: Array<{ id: string; title: string; completed: boolean }>;
-  setTodoList: React.Dispatch<
-    React.SetStateAction<
-      {
-        id: string;
-        title: string;
-        completed: boolean;
-      }[]
-    >
-  >;
+  setTodoList: React.Dispatch<React.SetStateAction<todo[]>>;
   filter: filter;
   setFilter: React.Dispatch<React.SetStateAction<filter>>;
+  removeTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
+  clearCompleted: () => void;
 }
 
 const TodoList = ({
@@ -33,23 +28,11 @@ const TodoList = ({
   setTodoList,
   filter,
   setFilter,
+  removeTodo,
+  toggleTodo,
+  clearCompleted,
 }: todoListProps) => {
   const ref = useRef<HTMLUListElement>();
-
-  // Todo List modify functions
-  const removeTodo = (id: string) => {
-    setTodoList((prev) => prev.filter((todo) => todo.id !== id));
-  };
-  const toggleTodo = (id: string) => {
-    setTodoList((prev) =>
-      prev.map((todo) =>
-        todo.id !== id ? todo : { ...todo, completed: !todo.completed }
-      )
-    );
-  };
-  const clearCompleted = () => {
-    setTodoList((prev) => prev.filter((todo) => !todo.completed));
-  };
 
   // items left
   const itemsLeft = todoList.reduce(

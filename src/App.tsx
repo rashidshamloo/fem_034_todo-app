@@ -1,4 +1,8 @@
+// react
 import { useEffect, useState } from 'react';
+
+// custom hooks
+import useTodos from './hooks/useTodos';
 
 // components
 import Header from './components/Header';
@@ -6,23 +10,27 @@ import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import Footer from './components/Footer';
 
-// data
-import defaultTodo from './data/defaultTodo.json';
-
 // types
 export type filter = 'all' | 'active' | 'completed';
+export interface todo {
+  id: string;
+  completed: boolean;
+  title: string;
+}
 
 const App = () => {
-  // localStorage
-  const todoListDefault = localStorage.getItem('todoList')
-    ? JSON.parse(localStorage.getItem('todoList') as string)
-    : defaultTodo;
+  // custom hook
+  const {
+    todoList,
+    setTodoList,
+    resetTodoList,
+    addTodo,
+    removeTodo,
+    toggleTodo,
+    clearCompleted,
+  } = useTodos();
 
-  // states
-  const [todoList, setTodoList] =
-    useState<Array<{ id: string; title: string; completed: boolean }>>(
-      todoListDefault
-    );
+  // state
   const [filter, setFilter] = useState<filter>('all');
 
   // handle events
@@ -31,15 +39,6 @@ const App = () => {
       resetTodoList();
     }
   };
-
-  const resetTodoList = () => {
-    setTodoList(defaultTodo);
-  };
-
-  // update localStorage for todoList
-  useEffect(() => {
-    localStorage.setItem('todoList', JSON.stringify(todoList));
-  }, [todoList]);
 
   useEffect(() => {
     // enable transitions after page load
@@ -53,12 +52,15 @@ const App = () => {
     <div className="mx-auto w-full sm:max-w-[33.75rem]">
       <Header />
       <main className="mx-[6%] mt-6 sm:mx-0 sm:mt-8">
-        <AddTodo setTodoList={setTodoList} />
+        <AddTodo addTodo={addTodo} />
         <TodoList
           todoList={todoList}
           setTodoList={setTodoList}
           filter={filter}
           setFilter={setFilter}
+          removeTodo={removeTodo}
+          toggleTodo={toggleTodo}
+          clearCompleted={clearCompleted}
         />
       </main>
       <Footer

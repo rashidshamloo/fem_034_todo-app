@@ -1,4 +1,8 @@
+// react
 import { useState } from 'react';
+
+// custom hooks
+import useTodos from '../hooks/useTodos';
 
 // uuid
 import { v4 as uuidv4 } from 'uuid';
@@ -6,20 +10,13 @@ import { v4 as uuidv4 } from 'uuid';
 // icons
 import { FaPlus } from 'react-icons/fa';
 
-// types
+//types
+import { todo } from '../App';
 interface addTodoProps {
-  setTodoList: React.Dispatch<
-    React.SetStateAction<
-      {
-        id: string;
-        title: string;
-        completed: boolean;
-      }[]
-    >
-  >;
+  addTodo: (todo: todo) => void;
 }
 
-const AddTodo = ({ setTodoList }: addTodoProps) => {
+const AddTodo = ({ addTodo }: addTodoProps) => {
   const [enableSubmit, setEnableSubmit] = useState<boolean>(false);
   // handle events
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +35,7 @@ const AddTodo = ({ setTodoList }: addTodoProps) => {
     ) as HTMLInputElement;
     // add todo and completed
     const completed = completedElement.checked;
-    setTodoList((prev) => [{ id: uuidv4(), title: todo, completed }, ...prev]);
+    addTodo({ id: uuidv4(), title: todo, completed });
     inputElement.value = '';
     completedElement.checked = false;
   };
