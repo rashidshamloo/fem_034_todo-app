@@ -54,6 +54,8 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
   - Applying smooth animations/transitions to all elements when switching the theme between light and dark mode.
   - Disabling the transitions by default and enabling them only after page load to remove the white to black transition at start when the dark mode is used by default.
   - Enabling reordering only when all todo items are visible and disabling it in filtered views. (and changing the related text in wach case)
+  - Smooth fade in / out and scale for Todo list when items are added / removed. (using `Framer Motion`'s `<AnimatePresence>` component)
+  - Hiding todo list and filter sections when there are no items in the list and showing them after the first item is added.
 
 ### Built with
 
