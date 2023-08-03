@@ -4,17 +4,15 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 
 ## Table of contents
 
-- [Front End Mentor - Project 034 - Todo app](#front-end-mentor---project-034---todo-app)
-  - [Table of contents](#table-of-contents)
-  - [Overview](#overview)
-    - [Screenshot](#screenshot)
-    - [Links](#links)
-  - [My process](#my-process)
-    - [Features](#features)
-    - [Built with](#built-with)
-    - [What I learned](#what-i-learned)
-    - [Useful resources](#useful-resources)
-  - [Author](#author)
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Features](#features)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
 ## Overview
 
